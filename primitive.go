@@ -24,6 +24,28 @@ type Grid struct {
 
 var ZeroNode = Node{0, 0, 0}
 
+// AdjNodes26 is the list of all 26 adjacent nodes of ZeroNode.
+var AdjNodes26 = adjNodes26()
+
+var AdjNodes6 = []Node{
+	{0, 0, -1},
+	{0, 0, 1},
+	{0, -1, 0},
+	{0, 1, 0},
+	{-1, 0, 0},
+	{1, 0, 0},
+}
+
+func adjNodes26() (res []Node) {
+	for i := 0; i < 27; i++ {
+		cur := Node{(i % 3) - 1, ((i / 3) % 3) - 1, ((i / 9) % 3) - 1}
+		if !cur.IsZero() {
+			res = append(res, cur)
+		}
+	}
+	return
+}
+
 // Add returns a sum of node and another node.
 func (node Node) Add(another Node) Node {
 	return Node{

@@ -20,6 +20,8 @@ type Grid struct {
 	N  int
 }
 
+var ZeroNode = Node{0, 0, 0}
+
 func (node Node) Add(another Node) Node {
 	return Node{
 		node[0] + another[0],
@@ -52,10 +54,7 @@ func (node Node) Vector() Vector {
 	}
 }
 
+// IsZero returns if node is { 0, 0, 0 }
 func (node Node) IsZero() bool {
-	return node[0] == 0 && node[1] == 0 && node[2] == 0
-}
-
-func (node Node) Equals(another Node) bool {
-	return node[0] == another[0] && node[1] == another[1] && node[2] == another[2]
+	return node == ZeroNode
 }

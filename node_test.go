@@ -4,49 +4,6 @@ import (
 	"testing"
 )
 
-type nodeEqualsTest struct {
-	node1 Node
-	node2 Node
-	want  bool
-}
-
-var nodeEqualsTests = []nodeEqualsTest{
-	{
-		Node{0, 0, 0},
-		Node{0, 0, 0},
-		true,
-	},
-	{
-		Node{1, 0, 0},
-		Node{0, 0, 0},
-		false,
-	},
-	{
-		Node{0, 1, 0},
-		Node{0, 0, 0},
-		false,
-	},
-	{
-		Node{0, 0, 1},
-		Node{0, 0, 0},
-		false,
-	},
-	{
-		Node{3, 4, 5},
-		Node{3, 4, 5},
-		true,
-	},
-}
-
-func TestNodeEquals(t *testing.T) {
-	for testInd, tt := range nodeEqualsTests {
-		got := tt.node1.Equals(tt.node2)
-		if got != tt.want {
-			t.Errorf("Test #%d: want: %v, got %v", testInd, tt.want, got)
-		}
-	}
-}
-
 type nodeIsZeroTest struct {
 	node Node
 	want bool
@@ -101,7 +58,7 @@ var nodeAddTests = []nodeBinaryOpTest{
 func TestAdd(t *testing.T) {
 	for testInd, tt := range nodeAddTests {
 		got := tt.node1.Add(tt.node2)
-		if !got.Equals(tt.want) {
+		if got != tt.want {
 			t.Errorf("Test #%d: want: %v, got %v", testInd, tt.want, got)
 		}
 	}
@@ -118,7 +75,7 @@ var nodeSubTests = []nodeBinaryOpTest{
 func TestSub(t *testing.T) {
 	for testInd, tt := range nodeSubTests {
 		got := tt.node1.Sub(tt.node2)
-		if !got.Equals(tt.want) {
+		if got != tt.want {
 			t.Errorf("Test #%d: want: %v, got %v", testInd, tt.want, got)
 		}
 	}

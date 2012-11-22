@@ -22,6 +22,9 @@ type Grid struct {
 	N  int
 }
 
+// ScalarField is a function that returns a value for every given point in 3d space.
+type ScalarField func(p Point) float64
+
 var ZeroNode = Node{0, 0, 0}
 
 // AdjNodes26 is the list of all 26 adjacent nodes of ZeroNode.

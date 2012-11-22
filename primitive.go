@@ -110,3 +110,20 @@ func (g Grid) At(node Node) Point {
 		g.P0[2] + g.H*float64(node[2]),
 	}
 }
+
+func (g Grid) Node(p Point) Node {
+	delta := p.Sub(g.P0)
+	return Node{
+		int(delta[0] / g.H),
+		int(delta[1] / g.H),
+		int(delta[2] / g.H),
+	}
+}
+
+func (p Point) Sub(p2 Point) Point {
+	return Point{
+		p[0] - p2[0],
+		p[1] - p2[1],
+		p[2] - p2[2],
+	}
+}

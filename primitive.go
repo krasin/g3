@@ -55,3 +55,7 @@ func (node Node) Vector() Vector {
 func (node Node) IsZero() bool {
 	return node[0] == 0 && node[1] == 0 && node[2] == 0
 }
+
+func (node Node) Equals(another Node) bool {
+	return node[0] == another[0] && node[1] == another[1] && node[2] == another[2]
+}

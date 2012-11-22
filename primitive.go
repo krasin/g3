@@ -120,6 +120,10 @@ func (g Grid) Node(p Point) Node {
 	}
 }
 
+func (g Grid) Side() float64 {
+	return float64(g.N) * g.H
+}
+
 func (p Point) Sub(p2 Point) Point {
 	return Point{
 		p[0] - p2[0],

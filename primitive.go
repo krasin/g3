@@ -62,3 +62,19 @@ func (node Node) Vector() Vector {
 func (node Node) IsZero() bool {
 	return node == ZeroNode
 }
+
+// L2 calculates L2 norm of vector (aka length)
+func (vec Vector) L2() float64 {
+	return math.Sqrt(vec[0]*vec[0] + vec[1]*vec[1] + vec[2]*vec[2])
+}
+
+// Normalize returns a vector that points to the same direction but has L2 norm equals to 1.
+// It will panic on Zero vector and will be out of precision for small vectors.
+func (vec Vector) Normalize() Vector {
+	l2 := vec.L2()
+	return Vector{
+		vec[0] / l2,
+		vec[1] / l2,
+		vec[2] / l2,
+	}
+}

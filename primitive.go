@@ -1,5 +1,7 @@
 package g3
 
+import "math"
+
 // Point is a point in 3d space.
 type Point [3]float64
 

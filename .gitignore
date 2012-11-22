@@ -1,6 +1,7 @@
 *.txt~
 *.go~
 Makefile~
+LICENSE~
 README~
 #*#
 *.6

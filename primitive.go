@@ -19,3 +19,39 @@ type Grid struct {
 	H  float64
 	N  int
 }
+
+func (node Node) Add(another Node) Node {
+	return Node{
+		node[0] + another[0],
+		node[1] + another[1],
+		node[2] + another[2],
+	}
+}
+
+func (node Node) Sub(another Node) Node {
+	return Node{
+		node[0] - another[0],
+		node[1] - another[1],
+		node[2] - another[2],
+	}
+}
+
+func (node Node) Point() Point {
+	return Point{
+		float64(node[0]),
+		float64(node[1]),
+		float64(node[2]),
+	}
+}
+
+func (node Node) Vector() Vector {
+	return Vector{
+		float64(node[0]),
+		float64(node[1]),
+		float64(node[2]),
+	}
+}
+
+func (node Node) IsZero() bool {
+	return node[0] == 0 && node[1] == 0 && node[2] == 0
+}

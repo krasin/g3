@@ -102,3 +102,11 @@ func (vec Vector) Normalize() Vector {
 		vec[2] / l2,
 	}
 }
+
+func (g Grid) At(node Node) Point {
+	return Point{
+		g.P0[0] + g.H*float64(node[0]),
+		g.P0[1] + g.H*float64(node[1]),
+		g.P0[2] + g.H*float64(node[2]),
+	}
+}

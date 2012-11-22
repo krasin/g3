@@ -22,6 +22,7 @@ type Grid struct {
 
 var ZeroNode = Node{0, 0, 0}
 
+// Add returns a sum of node and another node.
 func (node Node) Add(another Node) Node {
 	return Node{
 		node[0] + another[0],
@@ -30,6 +31,7 @@ func (node Node) Add(another Node) Node {
 	}
 }
 
+// Sub returns a difference between node and another node.
 func (node Node) Sub(another Node) Node {
 	return Node{
 		node[0] - another[0],
@@ -38,6 +40,7 @@ func (node Node) Sub(another Node) Node {
 	}
 }
 
+// Point converts Node to Point.
 func (node Node) Point() Point {
 	return Point{
 		float64(node[0]),
@@ -46,6 +49,7 @@ func (node Node) Point() Point {
 	}
 }
 
+// Vector converts Node to Vector.
 func (node Node) Vector() Vector {
 	return Vector{
 		float64(node[0]),
